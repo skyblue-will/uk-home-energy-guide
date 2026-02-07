@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Home Energy Guide — Clear, Unbiased Guidance on Home Energy</title>
+    <meta name="description" content="Your trusted source for clear, unbiased guidance on home energy costs and savings. Heat pumps, solar panels, insulation and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --surface: #ffffff;
+            --surface-alt: #f3f1ec;
+            --text: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --accent: #1a7a5a;
+            --accent-light: rgba(26, 122, 90, 0.08);
+            --accent-dark: #145e46;
+            --warm: #e8a850;
+            --warm-light: rgba(232, 168, 80, 0.1);
+            --border: #e5e2db;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Nav */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .nav-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .hero-cta:hover { background: var(--accent-dark); }
+
+        .hero-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .stat-card.warm .number { color: var(--warm); }
+
+        /* Topics */
+        .topics {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem 2rem;
+        }
+
+        .topics-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .topic-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .topic-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .topic-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Articles */
+        .articles {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .article-card:hover { box-shadow: var(--shadow-hover); }
+
+        .article-image {
+            height: 180px;
+            background: var(--surface-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .article-body {
+            padding: 1.5rem;
+        }
+
+        .article-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+
+        .article-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        /* Cost comparison */
+        .comparison {
+            background: var(--surface-alt);
+            padding: 5rem 2rem;
+        }
+
+        .comparison-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .compare-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .compare-card.featured {
+            border-color: var(--accent);
+            position: relative;
+        }
+
+        .compare-card.featured::before {
+            content: 'Best Value';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.75rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .compare-type {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .compare-name {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .compare-cost {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .compare-unit {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .compare-detail {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Trust bar */
+        .trust {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .trust-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--accent);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 420px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: var(--accent);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* Footer */
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-visual { grid-template-columns: repeat(4, 1fr); }
+            .topic-grid, .article-grid, .comparison-grid { grid-template-columns: 1fr; }
+            .trust { flex-direction: column; gap: 1.5rem; align-items: flex-start; padding-left: 2rem; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-visual { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="nav">
+        <a href="/" class="nav-brand">
+            <div class="nav-logo">⚡</div>
+            <span class="nav-name">UK Home Energy Guide</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Heat Pumps</a></li>
+            <li><a href="#">Solar</a></li>
+            <li><a href="#">Insulation</a></li>
+            <li><a href="#">Grants</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cut your energy bills with <span>clear, honest guidance</span></h1>
+            <p>No jargon, no hard sell. Independent advice on heat pumps, solar panels, insulation and government grants — so you can make smart decisions about your home's energy.</p>
+            <a href="#guides" class="hero-cta">Explore guides →</a>
+        </div>
+        <div class="hero-visual">
+            <div class="stat-card">
+                <div class="icon">🔥</div>
+                <div class="number">£1,568</div>
+                <div class="label">Average UK energy bill 2025</div>
+            </div>
+            <div class="stat-card warm">
+                <div class="icon">☀️</div>
+                <div class="number">£840</div>
+                <div class="label">Saved/year with solar</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🏠</div>
+                <div class="number">65%</div>
+                <div class="label">Heat lost through walls & roof</div>
+            </div>
+            <div class="stat-card warm">
+                <div class="icon">💷</div>
+                <div class="number">£7,500</div>
+                <div class="label">Boiler Upgrade Scheme grant</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust bar -->
+    <div class="trust">
+        <div class="trust-item">
+            <div class="trust-icon">✓</div>
+            <span>Independent & unbiased</span>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">📊</div>
+            <span>Real cost breakdowns</span>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">🇬🇧</div>
+            <span>UK-specific advice</span>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">📝</div>
+            <span>Plain English, no jargon</span>
+        </div>
+    </div>
+
+    <!-- Topics -->
+    <section class="topics" id="guides">
+        <div class="topics-inner">
+            <div class="section-label">Explore Topics</div>
+            <h2 class="section-title">What are you looking to do?</h2>
+            <div class="topic-grid">
+                <a href="#" class="topic-card">
+                    <div class="topic-icon">♨️</div>
+                    <h3>Heat Pumps</h3>
+                    <p>Air source vs ground source, costs, grants, and whether they'll work for your home.</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <div class="topic-icon">☀️</div>
+                    <h3>Solar Panels</h3>
+                    <p>How much they cost, how much you'll save, battery storage options, and the Smart Export Guarantee.</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <div class="topic-icon">🧱</div>
+                    <h3>Insulation</h3>
+                    <p>Loft, cavity wall, solid wall — what to do first and how much difference it actually makes.</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <div class="topic-icon">💷</div>
+                    <h3>Grants & Funding</h3>
+                    <p>Boiler Upgrade Scheme, ECO4, Great British Insulation Scheme — what you're eligible for.</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <div class="topic-icon">📊</div>
+                    <h3>Smart Meters</h3>
+                    <p>How they work, what they actually tell you, and whether they'll reduce your bills.</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <div class="topic-icon">🔌</div>
+                    <h3>Quick Wins</h3>
+                    <p>Simple changes that save money today — draught-proofing, thermostat tips, tariff switching.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost comparison -->
+    <section class="comparison">
+        <div class="comparison-inner">
+            <div class="section-label">At a Glance</div>
+            <h2 class="section-title">Heating costs compared</h2>
+            <div class="comparison-grid">
+                <div class="compare-card">
+                    <div class="compare-type">Traditional</div>
+                    <div class="compare-name">Gas Boiler</div>
+                    <div class="compare-cost">6.8p</div>
+                    <div class="compare-unit">per kWh</div>
+                    <p class="compare-detail">Familiar and widely installed. Being phased out for new builds from 2025.</p>
+                </div>
+                <div class="compare-card featured">
+                    <div class="compare-type">Low Carbon</div>
+                    <div class="compare-name">Air Source Heat Pump</div>
+                    <div class="compare-cost">5.7p</div>
+                    <div class="compare-unit">effective per kWh (COP 3.5)</div>
+                    <p class="compare-detail">£7,500 grant available. 3-4x efficiency means lower running costs despite higher electricity price.</p>
+                </div>
+                <div class="compare-card">
+                    <div class="compare-type">Premium</div>
+                    <div class="compare-name">Oil Boiler</div>
+                    <div class="compare-cost">7.2p</div>
+                    <div class="compare-unit">per kWh</div>
+                    <p class="compare-detail">Common in rural areas. Volatile pricing and high carbon. Grant available to switch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="articles">
+        <div class="section-label">Latest Articles</div>
+        <h2 class="section-title">Recently published</h2>
+        <div class="article-grid">
+            <a href="#" class="article-card">
+                <div class="article-image">📡</div>
+                <div class="article-body">
+                    <div class="article-tag">Smart Home</div>
+                    <h3>Smart Meters: Pros and Cons</h3>
+                    <p>Do smart meters actually save you money? We look at the real benefits and the common concerns.</p>
+                    <div class="article-meta">5 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <div class="article-image">♨️</div>
+                <div class="article-body">
+                    <div class="article-tag">Heat Pumps</div>
+                    <h3>Heat Pumps and the UK Net Zero Target Explained</h3>
+                    <p>How heat pumps fit into the government's decarbonisation strategy — and what it means for your home.</p>
+                    <div class="article-meta">6 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <div class="article-image">💡</div>
+                <div class="article-body">
+                    <div class="article-tag">Quick Wins</div>
+                    <h3>How to Reduce Energy Bills Without Major Upgrades</h3>
+                    <p>Simple, low-cost changes that can cut your energy bills starting today.</p>
+                    <div class="article-meta">4 min read</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Get energy tips straight to your inbox</h2>
+        <p>One email a month. Practical advice, grant updates, and cost comparisons. No spam.</p>
+        <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com">
+            <button>Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span>© 2026 UK Home Energy Guide. Independent advice for UK homeowners.</span>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+
+</body>
+</html>
