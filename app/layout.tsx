@@ -4,10 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'UK Home Energy Guide',
-    template: '%s - UK Home Energy Guide',
-  },
+  title: 'UK Home Energy Guide',
   description: 'Your trusted source for clear, unbiased guidance on home energy costs and savings.',
 };
 
