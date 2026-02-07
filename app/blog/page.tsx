@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { posts } from '../../lib/posts';
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog - UK Home Energy Guide',
 };
 
 const AFFILIATE_DISCLAIMER = 'This article contains affiliate links to renewable energy products and services, including solar panels, battery storage, heat pumps, and energy comparison tools. We may earn a commission if you make a purchase or request a quote through these links, at no extra cost to you. All opinions are our own and based on research.';

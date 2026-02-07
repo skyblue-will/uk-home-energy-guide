@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Home - UK Home Energy Guide',
 };
 
 export default function HomePage() {

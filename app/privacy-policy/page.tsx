@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy - UK Home Energy Guide',
 };
 
 export default function PrivacyPolicyPage() {

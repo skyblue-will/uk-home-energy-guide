@@ -12,10 +12,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   if (!post) {
-    return { title: 'Not Found' };
+    return { title: 'Not Found - UK Home Energy Guide' };
   }
   return {
-    title: post.title,
+    title: `${post.title} - UK Home Energy Guide`,
   };
 }
 

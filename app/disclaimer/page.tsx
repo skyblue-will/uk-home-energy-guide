@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer',
+  title: 'Disclaimer - UK Home Energy Guide',
 };
 
 export default function DisclaimerPage() {
