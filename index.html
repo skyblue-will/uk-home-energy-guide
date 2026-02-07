@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Home Energy Guide — Clear, Unbiased Guidance on Home Energy</title>
-    <meta name="description" content="Your trusted source for clear, unbiased guidance on home energy costs and savings. Heat pumps, solar panels, insulation and more.">
+    <title>UK Home Energy Guide — Compare Costs, Make Smart Decisions</title>
+    <meta name="description" content="Compare heat pumps vs gas boilers, solar panel costs, insulation savings. Real UK figures, sourced from Ofgem and Energy Saving Trust.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
@@ -13,699 +13,523 @@
             --surface: #ffffff;
             --surface-alt: #f3f1ec;
             --text: #1a1a1a;
-            --text-secondary: #5a5a5a;
+            --text-sec: #5a5a5a;
             --text-muted: #8a8a8a;
             --accent: #1a7a5a;
-            --accent-light: rgba(26, 122, 90, 0.08);
+            --accent-light: rgba(26,122,90,0.07);
             --accent-dark: #145e46;
-            --warm: #e8a850;
-            --warm-light: rgba(232, 168, 80, 0.1);
+            --warm: #d97706;
+            --warm-light: rgba(217,119,6,0.07);
+            --red: #dc2626;
+            --red-light: rgba(220,38,38,0.07);
+            --blue: #2563eb;
+            --blue-light: rgba(37,99,235,0.07);
             --border: #e5e2db;
-            --shadow: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-hover: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.07);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; }
 
-        body {
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 16px;
-            line-height: 1.6;
-        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
 
         /* Nav */
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.25rem 2rem;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .nav-logo {
-            width: 36px;
-            height: 36px;
-            background: var(--accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .nav-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
+        .nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; }
+        .nav-brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text); }
+        .nav-logo { width: 34px; height: 34px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 0.85rem; }
+        .nav-name { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+        .nav-links a { color: var(--text-sec); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.15s; }
         .nav-links a:hover { color: var(--accent); }
 
         /* Hero */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem 5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+        .hero { padding: 5rem 0 4rem; text-align: center; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.1rem; color: var(--text-sec); max-width: 600px; margin: 0 auto 2rem; }
+        .hero-caps { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+        .hero-cap { text-align: center; }
+        .hero-cap .num { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+        .hero-cap .lbl { font-size: 0.75rem; color: var(--text-muted); }
 
-        .hero-content h1 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(2.2rem, 4vw, 3.2rem);
-            font-weight: 400;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
+        /* Section */
+        .section { padding: 5rem 0; }
+        .section-alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .section-dark { background: var(--text); color: #fff; }
+        .section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+        .section-dark .section-label { color: #6ee7b7; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; margin-bottom: 0.75rem; }
+        .section-subtitle { color: var(--text-sec); font-size: 0.95rem; margin-bottom: 3rem; max-width: 550px; }
+        .section-dark .section-subtitle { color: #a1a1aa; }
 
-        .hero-content h1 span {
-            color: var(--accent);
-        }
+        /* Comparison table */
+        .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .compare-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; box-shadow: var(--shadow); position: relative; }
+        .compare-card.best { border-color: var(--accent); border-width: 2px; }
+        .compare-card.best::before { content: 'Best Value'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .compare-header { text-align: center; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem; }
+        .compare-type { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+        .compare-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.25rem; margin: 0.35rem 0; }
+        .compare-price { font-size: 2rem; font-weight: 700; color: var(--accent); }
+        .compare-price-unit { font-size: 0.8rem; color: var(--text-muted); }
+        .compare-rows { list-style: none; }
+        .compare-rows li { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+        .compare-rows li:last-child { border-bottom: none; }
+        .compare-rows .label { color: var(--text-sec); }
+        .compare-rows .value { font-weight: 600; text-align: right; }
+        .compare-rows .value.good { color: var(--accent); }
+        .compare-rows .value.warn { color: var(--warm); }
+        .compare-rows .value.bad { color: var(--red); }
 
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 480px;
-        }
+        /* Payback cards */
+        .payback-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .payback-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; box-shadow: var(--shadow); }
+        .payback-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .payback-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .payback-row { display: flex; justify-content: space-between; padding: 0.35rem 0; font-size: 0.85rem; }
+        .payback-row .label { color: var(--text-sec); }
+        .payback-row .value { font-weight: 600; }
+        .payback-highlight { background: var(--accent-light); border-radius: 6px; padding: 0.5rem 0.75rem; margin-top: 0.75rem; text-align: center; font-weight: 600; font-size: 0.85rem; color: var(--accent); }
 
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: #fff;
-            text-decoration: none;
-            padding: 0.85rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background 0.2s;
-        }
+        /* Quick wins */
+        .wins-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .win-row { display: flex; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; }
+        .win-info { flex: 1; }
+        .win-name { font-weight: 600; font-size: 0.9rem; }
+        .win-detail { font-size: 0.8rem; color: var(--text-sec); }
+        .win-numbers { text-align: right; }
+        .win-cost { font-size: 0.8rem; color: var(--text-muted); }
+        .win-saving { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
 
-        .hero-cta:hover { background: var(--accent-dark); }
+        /* Grants */
+        .grants-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .grant-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; box-shadow: var(--shadow); }
+        .section-dark .grant-card { background: #1e1e24; border-color: #333; }
+        .grant-amount { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; }
+        .section-dark .grant-amount { color: #6ee7b7; }
+        .grant-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .grant-card p { font-size: 0.85rem; color: var(--text-sec); line-height: 1.5; }
+        .section-dark .grant-card p { color: #a1a1aa; }
+        .grant-status { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+        .grant-status.open { background: var(--accent-light); color: var(--accent); }
+        .grant-status.closed { background: var(--red-light); color: var(--red); }
+        .section-dark .grant-status.open { background: rgba(110,231,183,0.15); color: #6ee7b7; }
+        .section-dark .grant-status.closed { background: rgba(220,38,38,0.15); color: #f87171; }
 
-        .hero-visual {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .stat-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .stat-card .icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .stat-card .number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1.2;
-        }
-
-        .stat-card .label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        .stat-card.warm .number { color: var(--warm); }
-
-        /* Topics */
-        .topics {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 5rem 2rem;
-        }
-
-        .topics-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 400;
-            margin-bottom: 3rem;
-            max-width: 500px;
-        }
-
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .topic-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: box-shadow 0.2s, transform 0.2s;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .topic-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
-        }
-
-        .topic-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .topic-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .topic-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
+        /* Current rates bar */
+        .rates-bar { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+        .rate-item { text-align: center; }
+        .rate-value { font-weight: 700; font-size: 1.1rem; }
+        .rate-label { font-size: 0.7rem; color: var(--text-muted); }
+        .rate-source { font-size: 0.7rem; color: var(--text-muted); font-style: italic; }
 
         /* Articles */
-        .articles {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
+        .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .article-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--text); transition: box-shadow 0.2s; }
+        .article-card:hover { box-shadow: var(--shadow-lg); }
+        .article-img { height: 140px; background: var(--surface-alt); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+        .article-body { padding: 1.25rem; }
+        .article-tag { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.35rem; }
+        .article-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.35rem; line-height: 1.35; }
+        .article-card p { font-size: 0.8rem; color: var(--text-sec); }
 
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .article-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: box-shadow 0.2s;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .article-card:hover { box-shadow: var(--shadow-hover); }
-
-        .article-image {
-            height: 180px;
-            background: var(--surface-alt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        .article-body {
-            padding: 1.5rem;
-        }
-
-        .article-tag {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .article-card h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.35;
-        }
-
-        .article-card p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .article-meta {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 1rem;
-        }
-
-        /* Cost comparison */
-        .comparison {
-            background: var(--surface-alt);
-            padding: 5rem 2rem;
-        }
-
-        .comparison-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .compare-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .compare-card.featured {
-            border-color: var(--accent);
-            position: relative;
-        }
-
-        .compare-card.featured::before {
-            content: 'Best Value';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.2rem 0.75rem;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .compare-type {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .compare-name {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .compare-cost {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .compare-unit {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .compare-detail {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 1rem;
-            line-height: 1.5;
-        }
-
-        /* Trust bar */
-        .trust {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .trust-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--accent-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: var(--accent);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .newsletter h2 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #fff;
-            margin-bottom: 0.75rem;
-        }
-
-        .newsletter p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 420px;
-            margin: 0 auto;
-            gap: 0.5rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-family: inherit;
-        }
-
-        .newsletter-form button {
-            padding: 0.75rem 1.5rem;
-            background: #fff;
-            color: var(--accent);
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            font-family: inherit;
-        }
+        /* CTA */
+        .cta-section { background: var(--accent); padding: 4rem 2rem; text-align: center; }
+        .cta-section h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.6rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem; }
+        .cta-section p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .cta-form { display: flex; max-width: 400px; margin: 0 auto; gap: 0.5rem; }
+        .cta-form input { flex: 1; padding: 0.7rem 1rem; border: none; border-radius: 6px; font-size: 0.88rem; font-family: inherit; }
+        .cta-form button { padding: 0.7rem 1.25rem; background: #fff; color: var(--accent); border: none; border-radius: 6px; font-weight: 600; font-size: 0.88rem; cursor: pointer; font-family: inherit; }
 
         /* Footer */
-        .footer {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+        .footer { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
+        .footer a { color: var(--text-sec); text-decoration: none; }
+        .footer-links { display: flex; gap: 1.5rem; }
 
-        .footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+        /* Sources */
+        .sources { border-top: 1px solid var(--border); padding: 1.5rem 0; }
+        .sources p { font-size: 0.7rem; color: var(--text-muted); line-height: 1.8; }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .hero { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-visual { grid-template-columns: repeat(4, 1fr); }
-            .topic-grid, .article-grid, .comparison-grid { grid-template-columns: 1fr; }
-            .trust { flex-direction: column; gap: 1.5rem; align-items: flex-start; padding-left: 2rem; }
+            .compare-grid, .payback-grid, .grants-grid, .article-grid { grid-template-columns: 1fr; }
+            .wins-grid { grid-template-columns: 1fr; }
+            .hero-caps { gap: 1.5rem; }
+            .rates-bar { flex-direction: column; text-align: center; }
             .nav-links { display: none; }
-        }
-
-        @media (max-width: 600px) {
-            .hero-visual { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nav -->
-    <nav class="nav">
-        <a href="/" class="nav-brand">
-            <div class="nav-logo">⚡</div>
-            <span class="nav-name">UK Home Energy Guide</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#">Heat Pumps</a></li>
-            <li><a href="#">Solar</a></li>
-            <li><a href="#">Insulation</a></li>
-            <li><a href="#">Grants</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Cut your energy bills with <span>clear, honest guidance</span></h1>
-            <p>No jargon, no hard sell. Independent advice on heat pumps, solar panels, insulation and government grants — so you can make smart decisions about your home's energy.</p>
-            <a href="#guides" class="hero-cta">Explore guides →</a>
-        </div>
-        <div class="hero-visual">
-            <div class="stat-card">
-                <div class="icon">🔥</div>
-                <div class="number">£1,758</div>
-                <div class="label">Ofgem price cap per year (Q1 2026)</div>
-            </div>
-            <div class="stat-card warm">
-                <div class="icon">☀️</div>
-                <div class="number">£400–660</div>
-                <div class="label">Saved/year with 4kW solar</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">🏠</div>
-                <div class="number">58%</div>
-                <div class="label">Heat lost through walls (33%) & roof (25%)</div>
-            </div>
-            <div class="stat-card warm">
-                <div class="icon">💷</div>
-                <div class="number">£7,500</div>
-                <div class="label">Boiler Upgrade Scheme grant</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust bar -->
-    <div class="trust">
-        <div class="trust-item">
-            <div class="trust-icon">✓</div>
-            <span>Independent & unbiased</span>
-        </div>
-        <div class="trust-item">
-            <div class="trust-icon">📊</div>
-            <span>Real cost breakdowns</span>
-        </div>
-        <div class="trust-item">
-            <div class="trust-icon">🇬🇧</div>
-            <span>UK-specific advice</span>
-        </div>
-        <div class="trust-item">
-            <div class="trust-icon">📝</div>
-            <span>Plain English, no jargon</span>
-        </div>
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="nav-brand">
+                <div class="nav-logo">⚡</div>
+                <span class="nav-name">UK Home Energy Guide</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#heating">Heating</a></li>
+                <li><a href="#solar">Solar</a></li>
+                <li><a href="#insulation">Insulation</a></li>
+                <li><a href="#grants">Grants</a></li>
+                <li><a href="#quickwins">Quick Wins</a></li>
+                <li><a href="#articles">Blog</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <!-- Topics -->
-    <section class="topics" id="guides">
-        <div class="topics-inner">
-            <div class="section-label">Explore Topics</div>
-            <h2 class="section-title">What are you looking to do?</h2>
-            <div class="topic-grid">
-                <a href="#" class="topic-card">
-                    <div class="topic-icon">♨️</div>
-                    <h3>Heat Pumps</h3>
-                    <p>Air source from £7,000–14,000 installed (minus £7,500 grant). Running costs roughly match gas at current prices — around £30–40/yr difference. COP of 3–3.5 means 1kWh electricity produces 3–3.5kWh heat.</p>
+    <!-- Hero -->
+    <div class="container">
+        <section class="hero">
+            <h1>Compare costs.<br><span>Make smart decisions.</span></h1>
+            <p>Real UK energy figures side by side — heat pumps vs gas, solar payback, insulation savings. No jargon, no sales pitch. Just the numbers.</p>
+            <div class="hero-caps">
+                <div class="hero-cap">
+                    <div class="num">£1,758</div>
+                    <div class="lbl">Ofgem cap per year (Q1 2026)</div>
+                </div>
+                <div class="hero-cap">
+                    <div class="num">27.69p</div>
+                    <div class="lbl">Electricity per kWh</div>
+                </div>
+                <div class="hero-cap">
+                    <div class="num">5.93p</div>
+                    <div class="lbl">Gas per kWh</div>
+                </div>
+                <div class="hero-cap">
+                    <div class="num">£7,500</div>
+                    <div class="lbl">Heat pump grant</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HEATING COMPARISON -->
+    <section class="section section-alt" id="heating">
+        <div class="container">
+            <div class="section-label">Heating</div>
+            <h2 class="section-title">How much does it cost to heat your home?</h2>
+            <p class="section-subtitle">Based on a typical UK household using 11,500 kWh of heat per year, at Ofgem Q1 2026 cap rates.</p>
+
+            <div class="rates-bar">
+                <div class="rate-item"><div class="rate-value">11,500 kWh</div><div class="rate-label">Typical annual heat demand</div></div>
+                <div class="rate-item"><div class="rate-value">27.69p/kWh</div><div class="rate-label">Electricity (cap)</div></div>
+                <div class="rate-item"><div class="rate-value">5.93p/kWh</div><div class="rate-label">Gas (cap)</div></div>
+                <div class="rate-source">Source: Ofgem, January 2026</div>
+            </div>
+
+            <div class="compare-grid">
+                <div class="compare-card">
+                    <div class="compare-header">
+                        <div class="compare-type">Traditional</div>
+                        <div class="compare-name">Gas Boiler</div>
+                        <div class="compare-price">£773</div>
+                        <div class="compare-price-unit">per year to run</div>
+                    </div>
+                    <ul class="compare-rows">
+                        <li><span class="label">Fuel cost</span><span class="value">5.93p/kWh</span></li>
+                        <li><span class="label">Efficiency</span><span class="value">90% (condensing)</span></li>
+                        <li><span class="label">Effective cost</span><span class="value">6.59p/kWh</span></li>
+                        <li><span class="label">Install cost</span><span class="value">£2,000–3,500</span></li>
+                        <li><span class="label">Grant available</span><span class="value bad">No</span></li>
+                        <li><span class="label">Carbon</span><span class="value warn">High (fossil fuel)</span></li>
+                        <li><span class="label">New builds</span><span class="value bad">Banned from 2025</span></li>
+                    </ul>
+                </div>
+
+                <div class="compare-card best">
+                    <div class="compare-header">
+                        <div class="compare-type">Low Carbon</div>
+                        <div class="compare-name">Air Source Heat Pump</div>
+                        <div class="compare-price">£803–910</div>
+                        <div class="compare-price-unit">per year to run</div>
+                    </div>
+                    <ul class="compare-rows">
+                        <li><span class="label">Fuel cost</span><span class="value">27.69p/kWh</span></li>
+                        <li><span class="label">Efficiency (COP)</span><span class="value good">300–350%</span></li>
+                        <li><span class="label">Effective cost</span><span class="value good">7.9–9.2p/kWh</span></li>
+                        <li><span class="label">Install cost</span><span class="value">£7,000–14,000</span></li>
+                        <li><span class="label">After £7,500 grant</span><span class="value good">£0–6,500</span></li>
+                        <li><span class="label">Carbon</span><span class="value good">Low (grid electric)</span></li>
+                        <li><span class="label">Heat pump tariff</span><span class="value good">Can beat gas</span></li>
+                    </ul>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-header">
+                        <div class="compare-type">Rural</div>
+                        <div class="compare-name">Oil Boiler</div>
+                        <div class="compare-price">£850+</div>
+                        <div class="compare-price-unit">per year to run (variable)</div>
+                    </div>
+                    <ul class="compare-rows">
+                        <li><span class="label">Fuel cost</span><span class="value">~6.5p/kWh</span></li>
+                        <li><span class="label">Efficiency</span><span class="value">85–90%</span></li>
+                        <li><span class="label">Effective cost</span><span class="value">7.2–7.6p/kWh</span></li>
+                        <li><span class="label">Install cost</span><span class="value">£3,000–5,500</span></li>
+                        <li><span class="label">Grant to switch</span><span class="value good">£7,500 BUS</span></li>
+                        <li><span class="label">Carbon</span><span class="value bad">Highest</span></li>
+                        <li><span class="label">Price stability</span><span class="value warn">Volatile</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLAR COMPARISON -->
+    <section class="section" id="solar">
+        <div class="container">
+            <div class="section-label">Solar</div>
+            <h2 class="section-title">Solar panels: cost vs savings</h2>
+            <p class="section-subtitle">What size system do you need? Typical UK household uses 2,700–3,600 kWh electricity per year.</p>
+
+            <div class="payback-grid">
+                <div class="payback-card">
+                    <div class="payback-icon">☀️</div>
+                    <h3>3kW System</h3>
+                    <div class="payback-row"><span class="label">Install cost</span><span class="value">£4,000–5,500</span></div>
+                    <div class="payback-row"><span class="label">Annual generation</span><span class="value">~2,550 kWh</span></div>
+                    <div class="payback-row"><span class="label">Bill savings</span><span class="value">£300–480/yr</span></div>
+                    <div class="payback-row"><span class="label">SEG income</span><span class="value">£60–130/yr</span></div>
+                    <div class="payback-highlight">Payback: 7–11 years</div>
+                </div>
+
+                <div class="payback-card" style="border-color: var(--accent); border-width: 2px;">
+                    <div class="payback-icon">☀️☀️</div>
+                    <h3>4kW System <span style="color: var(--accent); font-size: 0.75rem;">Most Popular</span></h3>
+                    <div class="payback-row"><span class="label">Install cost</span><span class="value">£5,000–8,000</span></div>
+                    <div class="payback-row"><span class="label">Annual generation</span><span class="value">~3,400 kWh</span></div>
+                    <div class="payback-row"><span class="label">Bill savings</span><span class="value">£400–660/yr</span></div>
+                    <div class="payback-row"><span class="label">SEG income</span><span class="value">£80–170/yr</span></div>
+                    <div class="payback-highlight">Payback: 6–9 years</div>
+                </div>
+
+                <div class="payback-card">
+                    <div class="payback-icon">☀️☀️☀️</div>
+                    <h3>6kW System</h3>
+                    <div class="payback-row"><span class="label">Install cost</span><span class="value">£7,000–11,000</span></div>
+                    <div class="payback-row"><span class="label">Annual generation</span><span class="value">~5,100 kWh</span></div>
+                    <div class="payback-row"><span class="label">Bill savings</span><span class="value">£550–850/yr</span></div>
+                    <div class="payback-row"><span class="label">SEG income</span><span class="value">£120–250/yr</span></div>
+                    <div class="payback-highlight">Payback: 6–10 years</div>
+                </div>
+            </div>
+
+            <div class="rates-bar" style="margin-top: 2rem;">
+                <div class="rate-item"><div class="rate-value">4–15p/kWh</div><div class="rate-label">Smart Export Guarantee rates (varies by supplier)</div></div>
+                <div class="rate-item"><div class="rate-value">South-facing</div><div class="rate-label">Ideal roof orientation</div></div>
+                <div class="rate-item"><div class="rate-value">25+ years</div><div class="rate-label">Panel lifespan</div></div>
+                <div class="rate-source">Sources: Solar Guide, GreenMatch, Heatable (2025/26)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSULATION COMPARISON -->
+    <section class="section section-alt" id="insulation">
+        <div class="container">
+            <div class="section-label">Insulation</div>
+            <h2 class="section-title">Where is your heat going?</h2>
+            <p class="section-subtitle">An uninsulated home loses 33% of heat through walls, 25% through the roof, and 15% through draughts. Here's what you can do about it.</p>
+
+            <div class="compare-grid">
+                <div class="compare-card best">
+                    <div class="compare-header">
+                        <div class="compare-type">Best ROI</div>
+                        <div class="compare-name">Loft Insulation</div>
+                        <div class="compare-price">Up to £270</div>
+                        <div class="compare-price-unit">saved per year</div>
+                    </div>
+                    <ul class="compare-rows">
+                        <li><span class="label">Install cost</span><span class="value good">£300–600</span></li>
+                        <li><span class="label">Heat saved</span><span class="value">Up to 25%</span></li>
+                        <li><span class="label">Payback</span><span class="value good">1–2 years</span></li>
+                        <li><span class="label">DIY possible?</span><span class="value good">Yes (loft roll)</span></li>
+                        <li><span class="label">Disruption</span><span class="value good">Minimal</span></li>
+                        <li><span class="label">Grant?</span><span class="value">ECO4 (eligible homes)</span></li>
+                    </ul>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-header">
+                        <div class="compare-type">Most Common</div>
+                        <div class="compare-name">Cavity Wall</div>
+                        <div class="compare-price">£120–420</div>
+                        <div class="compare-price-unit">saved per year</div>
+                    </div>
+                    <ul class="compare-rows">
+                        <li><span class="label">Install cost</span><span class="value">£700–4,300</span></li>
+                        <li><span class="label">Heat saved</span><span class="value">Up to 33%</span></li>
+                        <li><span class="label">Payback</span><span class="value">2–5 years</span></li>
+                        <li><span class="label">DIY possible?</span><span class="value bad">No (specialist)</span></li>
+                        <li><span class="label">Disruption</span><span class="value">Low–moderate</span></li>
+                        <li><span class="label">Grant?</span><span class="value">ECO4 (eligible homes)</span></li>
+                    </ul>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-header">
+                        <div class="compare-type">Biggest Impact</div>
+                        <div class="compare-name">Solid Wall</div>
+                        <div class="compare-price">Up to £500</div>
+                        <div class="compare-price-unit">saved per year</div>
+                    </div>
+                    <ul class="compare-rows">
+                        <li><span class="label">Install cost</span><span class="value warn">£7,400–13,000</span></li>
+                        <li><span class="label">Heat saved</span><span class="value">Up to 45%</span></li>
+                        <li><span class="label">Payback</span><span class="value warn">15–26 years</span></li>
+                        <li><span class="label">DIY possible?</span><span class="value bad">No</span></li>
+                        <li><span class="label">Disruption</span><span class="value bad">High</span></li>
+                        <li><span class="label">Grant?</span><span class="value">ECO4 / Local schemes</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK WINS -->
+    <section class="section" id="quickwins">
+        <div class="container">
+            <div class="section-label">Quick Wins</div>
+            <h2 class="section-title">Save money with no major work</h2>
+            <p class="section-subtitle">Simple changes ranked by savings per pound spent.</p>
+
+            <div class="wins-grid">
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Turn thermostat down 1°C</div><div class="win-detail">Free — just adjust the dial</div></div>
+                    <div class="win-numbers"><div class="win-cost">Free</div><div class="win-saving">Save ~£145/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Switch energy tariff</div><div class="win-detail">Compare on Ofgem-accredited sites</div></div>
+                    <div class="win-numbers"><div class="win-cost">Free</div><div class="win-saving">Save £50–200/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">LED bulbs throughout</div><div class="win-detail">Replace remaining halogen/CFL bulbs</div></div>
+                    <div class="win-numbers"><div class="win-cost">£30–80</div><div class="win-saving">Save £40–65/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Draught-proofing</div><div class="win-detail">Doors, windows, letterbox, chimney</div></div>
+                    <div class="win-numbers"><div class="win-cost">£100–300</div><div class="win-saving">Save £60/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Hot water cylinder jacket</div><div class="win-detail">80mm British Standard jacket</div></div>
+                    <div class="win-numbers"><div class="win-cost">£15–25</div><div class="win-saving">Save £35–45/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Radiator reflector panels</div><div class="win-detail">Behind radiators on external walls</div></div>
+                    <div class="win-numbers"><div class="win-cost">£15–40</div><div class="win-saving">Save £20–30/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Smart thermostat</div><div class="win-detail">Hive, Nest, tado° — schedule + zone</div></div>
+                    <div class="win-numbers"><div class="win-cost">£120–250</div><div class="win-saving">Save £75–150/yr</div></div>
+                </div>
+                <div class="win-row">
+                    <div class="win-info"><div class="win-name">Washing at 30°C</div><div class="win-detail">Modern detergents work fine at 30°C</div></div>
+                    <div class="win-numbers"><div class="win-cost">Free</div><div class="win-saving">Save £30/yr</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRANTS -->
+    <section class="section section-dark" id="grants">
+        <div class="container">
+            <div class="section-label">Grants & Funding</div>
+            <h2 class="section-title" style="color: #fff;">What funding is available?</h2>
+            <p class="section-subtitle">Government schemes to help with the cost of energy improvements.</p>
+
+            <div class="grants-grid">
+                <div class="grant-card">
+                    <div class="grant-status open">Open</div>
+                    <div class="grant-amount">£7,500</div>
+                    <h3>Boiler Upgrade Scheme</h3>
+                    <p>Off the cost of an air source or ground source heat pump. £5,000 for biomass boilers. £2,500 for air-to-air heat pumps. England & Wales. Applied for by your installer.</p>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-status open">Open</div>
+                    <div class="grant-amount">Free</div>
+                    <h3>ECO4 Scheme</h3>
+                    <p>Free insulation and heating upgrades for low-income and vulnerable households. Includes loft, cavity wall, and boiler replacements. Runs to March 2026.</p>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-status closed">Closed Oct 2025</div>
+                    <div class="grant-amount">Free</div>
+                    <h3>Great British Insulation Scheme</h3>
+                    <p>Was offering free cavity wall and loft insulation to homes in council tax bands A–D. Closed to new applicants October 2025. Check for successor schemes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="section" id="articles">
+        <div class="container">
+            <div class="section-label">Latest Articles</div>
+            <h2 class="section-title">Deep dives and practical guides</h2>
+            <p class="section-subtitle">Detailed breakdowns to help you make the right call.</p>
+
+            <div class="article-grid">
+                <a href="#" class="article-card">
+                    <div class="article-img">📡</div>
+                    <div class="article-body">
+                        <div class="article-tag">Smart Home</div>
+                        <h3>Smart Meters: Pros and Cons</h3>
+                        <p>Do they save money? Real benefits vs common concerns.</p>
+                    </div>
                 </a>
-                <a href="#" class="topic-card">
-                    <div class="topic-icon">☀️</div>
-                    <h3>Solar Panels</h3>
-                    <p>A 4kW system costs £5,000–8,000 and saves £400–660/yr on bills. Add £80–170/yr from Smart Export Guarantee. Typical payback: 6–9 years. South-facing roof ideal.</p>
+                <a href="#" class="article-card">
+                    <div class="article-img">♨️</div>
+                    <div class="article-body">
+                        <div class="article-tag">Heat Pumps</div>
+                        <h3>Heat Pumps and the Net Zero Target</h3>
+                        <p>How heat pumps fit the government's decarbonisation plan.</p>
+                    </div>
                 </a>
-                <a href="#" class="topic-card">
-                    <div class="topic-icon">🧱</div>
-                    <h3>Insulation</h3>
-                    <p>Loft insulation: £300–600, saves up to £270/yr. Cavity wall: £700–4,300, saves £120–420/yr. Best pound-for-pound energy saving you can make.</p>
-                </a>
-                <a href="#" class="topic-card">
-                    <div class="topic-icon">💷</div>
-                    <h3>Grants & Funding</h3>
-                    <p>Boiler Upgrade Scheme: £7,500 off heat pumps. ECO4: free insulation for eligible homes. Great British Insulation Scheme closed Oct 2025 — check for successor schemes.</p>
-                </a>
-                <a href="#" class="topic-card">
-                    <div class="topic-icon">📊</div>
-                    <h3>Smart Meters</h3>
-                    <p>Free installation from your supplier. Won't cut bills directly, but real-time usage data helps you spot waste. Average UK household uses 2,700 kWh electricity and 11,500 kWh gas per year.</p>
-                </a>
-                <a href="#" class="topic-card">
-                    <div class="topic-icon">🔌</div>
-                    <h3>Quick Wins</h3>
-                    <p>Dropping your thermostat 1°C saves ~£145/yr. Draught-proofing: £100–300, saves £60/yr. LED bulbs, smart plugs, and switching tariff can save £200+ with no major work.</p>
+                <a href="#" class="article-card">
+                    <div class="article-img">💡</div>
+                    <div class="article-body">
+                        <div class="article-tag">Quick Wins</div>
+                        <h3>Reduce Bills Without Major Upgrades</h3>
+                        <p>Low-cost changes that make a real difference.</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Cost comparison -->
-    <section class="comparison">
-        <div class="comparison-inner">
-            <div class="section-label">At a Glance</div>
-            <h2 class="section-title">Heating costs compared</h2>
-            <div class="comparison-grid">
-                <div class="compare-card">
-                    <div class="compare-type">Traditional</div>
-                    <div class="compare-name">Gas Boiler</div>
-                    <div class="compare-cost">5.93p</div>
-                    <div class="compare-unit">per kWh (Ofgem cap, Jan 2026)</div>
-                    <p class="compare-detail">~£773/yr to heat a typical home (11,500 kWh). Familiar but being phased out for new builds. Boiler replacement: £2,000–3,500.</p>
-                </div>
-                <div class="compare-card featured">
-                    <div class="compare-type">Low Carbon</div>
-                    <div class="compare-name">Air Source Heat Pump</div>
-                    <div class="compare-cost">~7.9p</div>
-                    <div class="compare-unit">effective per kWh (27.69p ÷ COP 3.5)</div>
-                    <p class="compare-detail">£7,500 grant brings install cost to £3,000–6,500. Running costs roughly match gas (~£30–40/yr more). On a heat pump tariff like Octopus Cosy, can be cheaper.</p>
-                </div>
-                <div class="compare-card">
-                    <div class="compare-type">Rural Common</div>
-                    <div class="compare-name">Oil Boiler</div>
-                    <div class="compare-cost">~6.5p</div>
-                    <div class="compare-unit">per kWh (varies with oil price)</div>
-                    <p class="compare-detail">~£850/yr for typical home. Volatile pricing, high carbon, storage tank needed. £7,500 BUS grant available to switch to a heat pump.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles -->
-    <section class="articles">
-        <div class="section-label">Latest Articles</div>
-        <h2 class="section-title">Recently published</h2>
-        <div class="article-grid">
-            <a href="#" class="article-card">
-                <div class="article-image">📡</div>
-                <div class="article-body">
-                    <div class="article-tag">Smart Home</div>
-                    <h3>Smart Meters: Pros and Cons</h3>
-                    <p>Do smart meters actually save you money? We look at the real benefits and the common concerns.</p>
-                    <div class="article-meta">5 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <div class="article-image">♨️</div>
-                <div class="article-body">
-                    <div class="article-tag">Heat Pumps</div>
-                    <h3>Heat Pumps and the UK Net Zero Target Explained</h3>
-                    <p>How heat pumps fit into the government's decarbonisation strategy — and what it means for your home.</p>
-                    <div class="article-meta">6 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <div class="article-image">💡</div>
-                <div class="article-body">
-                    <div class="article-tag">Quick Wins</div>
-                    <h3>How to Reduce Energy Bills Without Major Upgrades</h3>
-                    <p>Simple, low-cost changes that can cut your energy bills starting today.</p>
-                    <div class="article-meta">4 min read</div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <h2>Get energy tips straight to your inbox</h2>
-        <p>One email a month. Practical advice, grant updates, and cost comparisons. No spam.</p>
-        <div class="newsletter-form">
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Get energy cost updates in your inbox</h2>
+        <p>Monthly roundup: rate changes, new grants, and practical tips. No spam.</p>
+        <div class="cta-form">
             <input type="email" placeholder="your@email.com">
             <button>Subscribe</button>
         </div>
     </section>
 
-    <!-- Sources -->
-    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--border);">
-        <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.8;">
-            <strong>Sources:</strong> Ofgem Energy Price Cap Q1 2026 (£1,758/yr, electricity 27.69p/kWh, gas 5.93p/kWh, standing charges 54.75p/day and 35.09p/day).
-            Boiler Upgrade Scheme — Ofgem/DESNZ (£7,500 for ASHP/GSHP).
-            Solar savings — Solar Guide, GreenMatch, Heatable (4kW system £5,000–8,000, saves £400–660/yr).
-            Insulation — Energy Saving Trust, MoneySavingExpert (loft £270/yr, cavity wall £120–420/yr).
-            Heat loss — EDF Energy (walls 33%, roof 25%).
-            Heat pump running costs — Intergas, Hewer FM, EDF (gas boiler ~£773/yr on 11,500 kWh typical).
-            All figures based on Q1 2026 Ofgem cap rates unless otherwise stated.
-        </p>
-    </div>
-
     <!-- Footer -->
-    <footer class="footer">
-        <span>© 2026 UK Home Energy Guide. Independent advice for UK homeowners.</span>
-        <div class="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Disclaimer</a>
-            <a href="#">Contact</a>
+    <div class="container">
+        <div class="sources">
+            <p>
+                <strong>Sources:</strong> Ofgem Energy Price Cap Q1 2026 (£1,758/yr typical, electricity 27.69p/kWh, gas 5.93p/kWh) ·
+                Boiler Upgrade Scheme — Ofgem/DESNZ (£7,500 ASHP/GSHP, £5,000 biomass, £2,500 air-to-air) ·
+                Solar costs & savings — Solar Guide, GreenMatch, Heatable, FMB (2025/26 data) ·
+                Insulation — Energy Saving Trust, MoneySavingExpert, Renewable Energy Hub ·
+                Heat loss — EDF Energy (walls 33%, roof 25%), RBKC (one third total) ·
+                Heat pump running costs — Intergas (£773/yr gas on 11,500 kWh), Hewer FM (£30–40/yr difference), EDF ·
+                Quick wins — Energy Saving Trust, various. All figures based on Ofgem Q1 2026 cap rates unless stated.
+            </p>
         </div>
-    </footer>
+        <footer class="footer">
+            <span>© 2026 UK Home Energy Guide. Independent advice for UK homeowners.</span>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Disclaimer</a>
+                <a href="#">Contact</a>
+            </div>
+        </footer>
+    </div>
 
 </body>
 </html>
