@@ -51,14 +51,6 @@ export default function PostPage({ params }: PageProps) {
     <>
       <div className="single-post-header">
         <div className="single-post-header-inner">
-          <figure className="wp-block-post-featured-image">
-            <img
-              src="/images/hero.jpeg"
-              alt={post.title}
-              width={1024}
-              height={574}
-            />
-          </figure>
           <h1>{post.title}</h1>
         </div>
       </div>
