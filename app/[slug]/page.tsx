@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { posts, getPostBySlug, getAllSlugs } from '../../lib/posts';
+import { getPostBySlug, getAllSlugs } from '../../lib/posts';
 
 interface PageProps {
   params: { slug: string };
@@ -19,10 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const AFFILIATE_DISCLAIMER = 'This article contains affiliate links to renewable energy products and services, including solar panels, battery storage, heat pumps, and energy comparison tools. We may earn a commission if you make a purchase or request a quote through these links, at no extra cost to you. All opinions are our own and based on research.';
-
 function formatDate(dateStr: string): string {
-  const d = new Date(dateStr + 'T00:00:00Z');
+  const d = new Date(dateStr);
   return d.toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',
@@ -45,8 +43,6 @@ export default function PostPage({ params }: PageProps) {
     );
   }
 
-  const paragraphs = post.content.split('\n\n');
-
   return (
     <>
       <div className="single-post-header">
@@ -57,11 +53,7 @@ export default function PostPage({ params }: PageProps) {
 
       <div className="single-post-content">
         <div className="single-post-content-inner">
-          {paragraphs.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-
-          <p className="affiliate-disclaimer">{AFFILIATE_DISCLAIMER}</p>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
           <p className="single-post-date">{formatDate(post.date)}</p>
         </div>
